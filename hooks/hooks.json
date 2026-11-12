@@ -1,0 +1,27 @@
+{
+  "description": "WorkNote AI 세션 수집 — 세션 시작·응답 뒤·세션 끝에 수집기를 뒤에서 띄운다(훅 자체는 바로 끝난다)",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hook.mjs\" start", "timeout": 5 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hook.mjs\" stop", "timeout": 5 }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hook.mjs\" end", "timeout": 5 }
+        ]
+      }
+    ]
+  }
+}

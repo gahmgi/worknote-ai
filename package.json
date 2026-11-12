@@ -1,0 +1,11 @@
+{
+  "name": "worknote-ai",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "description": "WorkNote AI 세션 수집기(Claude Code 플러그인). 의존성 0 — Node 만 있으면 된다.",
+  "scripts": {
+    "test": "node --test",
+    "preview": "node scripts/collect.mjs --dry-run --limit 3"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "worknote-ai",
+  "description": "WorkNote 용 Claude Code 플러그인",
+  "owner": { "name": "gahmgi", "url": "https://github.com/gahmgi" },
+  "plugins": [
+    {
+      "name": "worknote-ai",
+      "description": "Claude Code 로 한 작업을 WorkNote 에 자동으로 남깁니다.",
+      "version": "0.1.1",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
