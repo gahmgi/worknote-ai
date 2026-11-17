@@ -2,6 +2,14 @@
 
 Claude Code 로 한 작업을 WorkNote 에 자동으로 남기는 플러그인입니다. 작업 세션 하나가 「AI 세션」 노트 한 장이 되고, 그 작업을 한 날의 데일리 업무 로그에 한 줄이 남습니다. 원문 대화는 보내지 않고 요약만 보냅니다.
 
+## ChatGPT · GPT 사용자
+
+`gpt/` 에 WorkNote 원격 MCP와 기록 지침을 묶은 OpenAI 플러그인이 있습니다. 설치 시 사용자가 **자기 WorkNote 계정으로 OAuth 로그인**해야 하며, 정적 토큰을 플러그인에 넣지 않습니다. 기존 WorkNote `log_ai_session` 도구를 이용하므로 서버 스키마 변경은 없습니다.
+
+이 플러그인은 결과가 남는 작업을 마칠 때 ChatGPT가 AI 세션을 기록하도록 안내합니다. ChatGPT 웹의 플러그인 훅은 실행되지 않아 **모든 대화의 무조건적 백그라운드 수집을 보장하지는 않습니다.** 기록 실패 시 저장됐다고 말하지 않아야 합니다. Claude Code 수집기와 달리 원문 대화 파일을 읽거나 과거 대화를 소급하지 않습니다.
+
+로컬 ChatGPT 데스크톱/Codex에서는 이 저장소의 `.agents/plugins/marketplace.json`에서 `worknote-gpt`를 설치할 수 있습니다. GitHub 기반 Work 스페이스 배포는 관리자가 해당 저장소를 플러그인 마켓플레이스로 가져와 동기화한 뒤 사용자에게 설치 권한을 부여해야 합니다. WorkNote 운영 MCP의 OAuth 서버와 동적 클라이언트 등록이 켜져 있어야 연결됩니다.
+
 ## 준비
 
 - Claude Code 에 WorkNote 커넥터가 연결돼 있어야 합니다(WorkNote ··· 메뉴 「AI 연결」).
@@ -39,3 +47,4 @@ node scripts/collect.mjs --trigger manual --records preview.json   # 본 그대�
 - 요약하려고 띄운 실행은 기록을 남기지 않고 훅도 돌지 않아, 다시 수집되지 않습니다.
 - 키·비밀번호·토큰 모양의 글자는 보내기 전에 [가림] 으로 바꿉니다. WorkNote 서버도 한 번 더 거릅니다.
 - 실패하면 상태 폴더의 `collect.log` 에 남기고, 다음 실행이 이어갑니다.
+

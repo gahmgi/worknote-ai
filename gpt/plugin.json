@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "worknote-gpt",
+  "version": "0.1.0",
+  "description": "ChatGPT 작업의 결과를 WorkNote AI 세션과 데일리 로그에 기록합니다.",
+  "author": { "name": "gahmgi", "url": "https://github.com/gahmgi" },
+  "repository": "https://github.com/gahmgi/worknote-ai",
+  "license": "MIT",
+  "keywords": ["worknote", "chatgpt", "session-log", "daily"],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/worknote-session/SKILL.md",
+      "interface": {
+        "displayName": "WorkNote AI",
+        "shortDescription": "GPT 작업을 WorkNote에 기록",
+        "longDescription": "WorkNote 계정으로 연결해 의미 있는 GPT 작업의 요약을 AI 세션 노트와 데일리 로그에 기록합니다.",
+        "developerName": "gahmgi",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://magical-elf-49e5b5.netlify.app"
+      }
+    }
+  }
+}
+
