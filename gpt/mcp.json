@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "worknote": {
+      "type": "streamable-http",
+      "url": "https://magical-elf-49e5b5.netlify.app/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": { "mode": "dcr" }
+          }
+        }
+      }
+    }
+  }
+}
+
